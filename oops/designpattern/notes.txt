@@ -1,0 +1,27 @@
+Design pattern are typically into three categories
+this is called Gamma Categorization after erich gamma, one of G0F authors
+
+Creational Patterns
+-> Deal with Creation (construction) of objects
+-> Explicity (constructor) Vs Implicit (DI, Reflection)
+-> Wholsale (single statmnt) vs Picecewise (step by step)
+
+Structural Patterns
+    Concerned with the structure (e.g. class members)
+    Many patterns are wrappers that mimic the underlying  class interfacr
+    Strees the important of good API design
+
+Behavioural Patterns
+    They are all different, no central theme
+
+Builder
+-----------------
+Some Objects are simple and can be created in a single inititalizer called
+other objects require a lot of ceremony to create 
+Having an object with 10 initialzer arguments is not produdctive
+instead, opt for piecewise construction
+
+>> Formal Defintion of builder deisgn pattern
+Whene Piecewise object construction is complicated, provide an API for doing it succinctly (in a breif a clearly expressed manner)
+
+
