@@ -34,6 +34,8 @@ class HtmlElement:
     
     
 class HtmlBuilder:
+    __root=HtmlElement()
+    
     def __init__(self,root_name):
         self.root_name=root_name
         self.__root=HtmlElement(root_name)
@@ -49,13 +51,27 @@ class HtmlBuilder:
             ) 
         return self
     
+    def clear(self):
+        self.__root=HtmlElement(name=self.root_name)
+    
     def __str__(self):
         #print('printing')
         return str(self.__root)
     
-builder=HtmlBuilder('ul')
-#builder.add_child('li','hello')
-#builder.add_child('li','world')
-builder.add_child_fluent('li','hello').add_child_fluent('li','world')
+    @staticmethod
+    def create(name):
+        return HtmlBuilder(name)
+    
+#Ordinary Non FLuent Builder    
+builder=HtmlBuilder.create('ul')
+builder.add_child('li','hello')
+builder.add_child('li','world')
 print('Ordinary Builder')
+print(builder)
+
+#fluent Builder
+builder.clear()
+builder.add_child_fluent('li','hello') \
+    .add_child_fluent('li','world')
+print('Fluent Builder')
 print(builder)
